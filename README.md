@@ -26,5 +26,8 @@ or
 or 
 `npm run serve`
 
+## Important
 
+For support enzyme + jest testing with React 17, I installed not an official package from `@wojtekmaj/enzyme-adapter-react-17` i found it on GitHub issue 
 
+https://github.com/enzymejs/enzyme/issues/2429 

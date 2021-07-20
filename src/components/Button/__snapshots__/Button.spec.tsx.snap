@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button test should render Button component 1`] = `
+<styled.button
+  data-test-id="todo-button"
+  onClick={[MockFunction]}
+>
+  Some text
+</styled.button>
+`;

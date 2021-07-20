@@ -10,5 +10,7 @@ export interface Props
 }
 
 export const Button: FC<Props> = ({ children, ...rest }) => (
-  <StyledButton {...rest}>{children}</StyledButton>
+  <StyledButton {...rest} data-test-id="todo-button">
+    {children}
+  </StyledButton>
 )
