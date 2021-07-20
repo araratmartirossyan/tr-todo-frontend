@@ -26,8 +26,8 @@ export const Home = () => {
     currentTarget: { value },
   }: FormEvent<HTMLInputElement>) => setTask(value)
 
-  const handleCreateTask = () => {
-    dispatch(createTaskAction({ title: task }))
+  const handleCreateTask = async () => {
+    await dispatch(createTaskAction({ title: task }))
     setTask('')
   }
 
@@ -73,6 +73,7 @@ export const Home = () => {
         <StyledInput
           placeholder="Add task"
           className="task-input"
+          name="title"
           value={task}
           onKeyDown={handlePressKey}
           onInput={onTaskInput}

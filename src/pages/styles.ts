@@ -32,9 +32,9 @@ export const ActionBar = styled(Section)`
     background: var(--white);
     margin: 0;
     padding: var(--spacing-s);
-  }
 
-  .task-input {
-    color: var(--dark);
+    .task-input {
+      color: var(--dark);
+    }
   }
 `

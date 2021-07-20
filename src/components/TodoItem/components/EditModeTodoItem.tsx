@@ -26,16 +26,16 @@ export const EditModeTodoItem: FC<EditModeProps> = ({
   const inputRef =
     useRef<HTMLInputElement>() as React.MutableRefObject<HTMLInputElement>
 
+  const onTaskInput = ({
+    currentTarget: { value },
+  }: FormEvent<HTMLInputElement>) => setLocalTaskTitle(value)
+
   useEffect(() => {
     setLocalTaskTitle(title)
     if (inputRef.current) {
       inputRef.current.focus()
     }
   }, [inputRef])
-
-  const onTaskInput = ({
-    currentTarget: { value },
-  }: FormEvent<HTMLInputElement>) => setLocalTaskTitle(value)
 
   const handleUpdate = () => {
     onSetEditMode(false)
