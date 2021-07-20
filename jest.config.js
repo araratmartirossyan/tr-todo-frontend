@@ -9,6 +9,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   transform: {
     '^.+\\.(js|jsx|mjs|cjs|ts|tsx)$': '<rootDir>/node_modules/babel-jest',
+    '.+\\.(svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
     ...tsjPreset.transform,
   },
   transformIgnorePatterns: [
@@ -16,6 +17,7 @@ module.exports = {
     '^.+\\.module\\.(css|sass|scss)$',
   ],
   moduleNameMapper: {
+    '^@/(.*svg)(\\?component)$': '<rootDir>/src/$1',
     '^@/(.*)$': '<rootDir>/src/$1',
   },
   watchPlugins: [

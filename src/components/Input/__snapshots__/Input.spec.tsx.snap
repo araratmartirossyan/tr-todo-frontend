@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input test should render component 1`] = `
+<input
+  className="sc-bdnxRM gXlJqt"
+  name="test"
+  onInput={[MockFunction]}
+/>
+`;

@@ -6,7 +6,7 @@ import { Button, StyledInput } from '@/components'
 
 import { StyledTodoItem, ActionsBlock } from '../styles'
 
-interface EditModeProps {
+export interface EditModeProps {
   onSetEditMode: (editMode: boolean) => void
   onUpdate: (args: TODO.UpdateArguments) => void
   _id: string
@@ -35,7 +35,7 @@ export const EditModeTodoItem: FC<EditModeProps> = ({
     if (inputRef.current) {
       inputRef.current.focus()
     }
-  }, [inputRef])
+  }, [inputRef, title])
 
   const handleUpdate = () => {
     onSetEditMode(false)
@@ -46,13 +46,20 @@ export const EditModeTodoItem: FC<EditModeProps> = ({
     <StyledTodoItem>
       <StyledInput
         className="todo-edit-input"
+        name="title"
+        data-test-id="todo-edit-input"
         onInput={onTaskInput}
         value={localTaskTitle}
         ref={inputRef}
       />
 
       <ActionsBlock>
-        <Button tertiary className="todo-icon-button" onClick={handleUpdate}>
+        <Button
+          tertiary
+          className="todo-icon-button"
+          data-test-id="todo-save-button"
+          onClick={handleUpdate}
+        >
           <SaveIcon />
         </Button>
       </ActionsBlock>

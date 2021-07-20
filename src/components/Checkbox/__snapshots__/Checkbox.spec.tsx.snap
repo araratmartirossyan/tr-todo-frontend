@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox test should render Checkbox component 1`] = `
+<styled.div
+  checked={false}
+  data-test-id="todo-checkbox"
+  onChange={[MockFunction]}
+>
+  <styled.svg
+    viewBox="0 0 24 24"
+  >
+    <polyline
+      points="20 6 9 17 4 12"
+    />
+  </styled.svg>
+</styled.div>
+`;

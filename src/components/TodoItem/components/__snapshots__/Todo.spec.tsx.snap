@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoItem test should render component 1`] = `
+<styled.li>
+  <styled.input
+    className="todo-edit-input"
+    data-test-id="todo-edit-input"
+    name="title"
+    onInput={[Function]}
+    value=""
+  />
+  <styled.div>
+    <Button
+      className="todo-icon-button"
+      data-test-id="todo-save-button"
+      onClick={[Function]}
+      tertiary={true}
+    >
+      <Component />
+    </Button>
+  </styled.div>
+</styled.li>
+`;

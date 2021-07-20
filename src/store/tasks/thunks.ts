@@ -30,7 +30,6 @@ export const updateTaskAction = createAsyncThunk(
 export const deleteTaskAction = createAsyncThunk(
   'task/deleteTask',
   async (id: string) => {
-    console.log('oN DELETE', id)
     await deleteTask(id)
     return id
   }

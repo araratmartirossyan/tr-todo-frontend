@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoItem test should render component 1`] = `
+<styled.li
+  done={false}
+  onClick={[Function]}
+>
+  <Checkbox
+    checked={false}
+    className="todo-checkbox"
+    data-test-id="todo-checkbox-toogle"
+    name="done"
+    onChange={[Function]}
+  />
+  <span>
+    Test Task
+  </span>
+  <styled.div>
+    <Button
+      className="todo-icon-button"
+      data-test-id="todo-edit-button"
+      onClick={[Function]}
+      tertiary={true}
+    >
+      <Component />
+    </Button>
+    <Button
+      className="todo-icon-button"
+      data-test-id="todo-remove-button"
+      onClick={[Function]}
+      tertiary={true}
+    >
+      <Component />
+    </Button>
+  </styled.div>
+</styled.li>
+`;

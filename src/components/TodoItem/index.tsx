@@ -6,7 +6,7 @@ import EditIcon from '@/assets/icons/edit.svg?component'
 
 import { StyledTodoItem, ActionsBlock } from './styles'
 
-interface Props {
+export interface Props {
   title: string
   done: boolean
   _id: string
@@ -28,6 +28,7 @@ export const TodoItem: FC<Props> = ({
   if (inEditMode && _id) {
     return (
       <EditModeTodoItem
+        data-test-id="todo-edit-task"
         onUpdate={onUpdate}
         title={title}
         _id={_id}
@@ -41,6 +42,8 @@ export const TodoItem: FC<Props> = ({
     <StyledTodoItem onClick={toggleTask} done={done}>
       <Checkbox
         className="todo-checkbox"
+        name="done"
+        data-test-id="todo-checkbox-toogle"
         checked={done}
         onChange={toggleTask}
       />
@@ -51,6 +54,7 @@ export const TodoItem: FC<Props> = ({
         <Button
           tertiary
           className="todo-icon-button"
+          data-test-id="todo-edit-button"
           onClick={(event: MouseEvent<HTMLButtonElement>) => {
             event.stopPropagation()
             setEditMode(!inEditMode)
@@ -61,6 +65,7 @@ export const TodoItem: FC<Props> = ({
         <Button
           tertiary
           className="todo-icon-button"
+          data-test-id="todo-remove-button"
           onClick={(event: MouseEvent<HTMLButtonElement>) => {
             event.stopPropagation()
             onRemove(_id)

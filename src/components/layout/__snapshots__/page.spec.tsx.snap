@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page test should render component 1`] = `
+<styled.div>
+  <h2
+    data-test-id="test-item"
+  >
+    Hello world
+  </h2>
+</styled.div>
+`;

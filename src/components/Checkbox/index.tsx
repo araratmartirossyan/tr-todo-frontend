@@ -6,7 +6,12 @@ interface Props
     InputHTMLAttributes<HTMLInputElement> {}
 
 export const Checkbox: FC<Props> = ({ checked, onChange, ...rest }) => (
-  <StyledCheckbox checked={checked} onChange={onChange} {...rest}>
+  <StyledCheckbox
+    checked={checked}
+    onChange={onChange}
+    {...rest}
+    data-test-id="todo-checkbox"
+  >
     <CheckIcon viewBox="0 0 24 24">
       <polyline points="20 6 9 17 4 12" />
     </CheckIcon>
