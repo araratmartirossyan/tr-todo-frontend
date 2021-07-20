@@ -16,4 +16,25 @@ export const Section = styled.section`
   .home-page-empty {
     color: var(--white);
   }
+
+  @media (max-width: 478px) {
+    justify-content: center;
+    text-align: center;
+    padding: var(--spacing-s);
+    max-width: 100%;
+  }
+`
+
+export const ActionBar = styled(Section)`
+  @media (max-width: 478px) {
+    position: absolute;
+    bottom: 0;
+    background: var(--white);
+    margin: 0;
+    padding: var(--spacing-s);
+  }
+
+  .task-input {
+    color: var(--dark);
+  }
 `

@@ -6,7 +6,7 @@ import { Page } from '@/components/layout/page'
 import { Button, StyledInput, TodoItem, TodoList } from '@/components'
 
 // Styles
-import { Section } from './styles'
+import { Section, ActionBar } from './styles'
 
 // Stores
 import { useAppDispatch } from '@/store'
@@ -49,40 +49,38 @@ export const Home = () => {
   }, [dispatch])
 
   return (
-    <div className="home-page">
-      <Page>
-        {tasks.length === 0 && (
-          <Section>
-            <h2 className="home-page-empty">
-              You have nothing to do. Create new task or take a rest
-            </h2>
-          </Section>
-        )}
+    <Page>
+      {tasks.length === 0 && (
         <Section>
-          <TodoList>
-            {tasks.map((item, key) => (
-              <TodoItem
-                key={key}
-                onUpdate={(payload) => dispatch(updateTaskAction(payload))}
-                onRemove={(_id) => dispatch(deleteTaskAction(_id))}
-                {...item}
-              />
-            ))}
-          </TodoList>
+          <h2 className="home-page-empty">
+            You have nothing to do. Create new task or take a rest
+          </h2>
         </Section>
-        <Section>
-          <StyledInput
-            placeholder="Add task"
-            className="task-input"
-            value={task}
-            onKeyDown={handlePressKey}
-            onInput={onTaskInput}
-          />
-          <Button primary onClick={handleCreateTask} type="submit">
-            Add
-          </Button>
-        </Section>
-      </Page>
-    </div>
+      )}
+      <Section>
+        <TodoList>
+          {tasks.map((item, key) => (
+            <TodoItem
+              key={key}
+              onUpdate={(payload) => dispatch(updateTaskAction(payload))}
+              onRemove={(_id) => dispatch(deleteTaskAction(_id))}
+              {...item}
+            />
+          ))}
+        </TodoList>
+      </Section>
+      <ActionBar>
+        <StyledInput
+          placeholder="Add task"
+          className="task-input"
+          value={task}
+          onKeyDown={handlePressKey}
+          onInput={onTaskInput}
+        />
+        <Button primary onClick={handleCreateTask} type="submit">
+          Add
+        </Button>
+      </ActionBar>
+    </Page>
   )
 }
