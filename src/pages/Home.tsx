@@ -3,7 +3,7 @@ import { FormEvent, KeyboardEvent, useEffect, useState } from 'react'
 
 // Components
 import { Page } from '@/components/layout/page'
-import { Button, StyledInput, TodoItem, TodoList } from '@/components'
+import { Button, StyledInput, TodoItem, TodoList, Message } from '@/components'
 
 // Styles
 import { Section, ActionBar } from './styles'
@@ -17,18 +17,24 @@ import {
   fetchTasksAction,
   updateTaskAction,
 } from '@/store/tasks/thunks'
+import { useValidate } from '@/hooks/useValidate.hook'
 
 export const Home = () => {
   // Task
   const [task, setTask] = useState('')
+  const { validate, error } = useValidate()
 
   const onTaskInput = ({
     currentTarget: { value },
   }: FormEvent<HTMLInputElement>) => setTask(value)
 
   const handleCreateTask = async () => {
-    await dispatch(createTaskAction({ title: task }))
-    setTask('')
+    const result = validate(task)
+
+    if (!result.error) {
+      await dispatch(createTaskAction({ title: task }))
+      setTask('')
+    }
   }
 
   const handlePressKey = (event: KeyboardEvent<HTMLInputElement>) => {
@@ -68,6 +74,9 @@ export const Home = () => {
             />
           ))}
         </TodoList>
+      </Section>
+      <Section>
+        <Message>{error.message}</Message>
       </Section>
       <ActionBar>
         <StyledInput

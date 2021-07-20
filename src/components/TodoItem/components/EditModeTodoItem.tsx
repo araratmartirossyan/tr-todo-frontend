@@ -2,9 +2,10 @@ import { FC, FormEvent, useState, useRef, useEffect } from 'react'
 
 // Components
 import SaveIcon from '@/assets/icons/save.svg?component'
-import { Button, StyledInput } from '@/components'
+import { Button, Message, StyledInput } from '@/components'
 
 import { StyledTodoItem, ActionsBlock } from '../styles'
+import { useValidate } from '@/hooks/useValidate.hook'
 
 export interface EditModeProps {
   onSetEditMode: (editMode: boolean) => void
@@ -22,6 +23,7 @@ export const EditModeTodoItem: FC<EditModeProps> = ({
   done,
 }) => {
   const [localTaskTitle, setLocalTaskTitle] = useState('')
+  const { error, validate } = useValidate()
 
   const inputRef =
     useRef<HTMLInputElement>() as React.MutableRefObject<HTMLInputElement>
@@ -38,8 +40,12 @@ export const EditModeTodoItem: FC<EditModeProps> = ({
   }, [inputRef, title])
 
   const handleUpdate = () => {
-    onSetEditMode(false)
-    onUpdate({ title: localTaskTitle, _id, done })
+    const result = validate(localTaskTitle)
+
+    if (!result.error) {
+      onSetEditMode(false)
+      onUpdate({ title: localTaskTitle, _id, done })
+    }
   }
 
   return (
@@ -52,6 +58,8 @@ export const EditModeTodoItem: FC<EditModeProps> = ({
         value={localTaskTitle}
         ref={inputRef}
       />
+
+      {error.error && <Message>{error.message}</Message>}
 
       <ActionsBlock>
         <Button

@@ -27,7 +27,7 @@ export const Section = styled.section`
 
 export const ActionBar = styled(Section)`
   @media (max-width: 478px) {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     background: var(--white);
     margin: 0;
